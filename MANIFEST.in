@@ -1,0 +1,4 @@
+graft src/inqbus
+graft docs
+include *.rst
+global-exclude *.pyc

@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="inqbus.plonevue"
+      metal:use-macro="context/main_template/macros/master">
+
+
+    <metal:slot fill-slot="css_slot">
+      <link tal:attributes="href string:${context/absolute_url}/++resource++vue/dist/css/app.css" rel='stylesheet'>
+    </metal:slot>
+
+  <metal:block fill-slot="javascript_head_slot">
+    <script>
+      window.__define = window.define;
+      window.__require = window.require;
+      window.define = undefined;
+      window.require = undefined;
+    </script>
+        <script data-require="vue.js@2.0.3" data-semver="2.0.3" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
+
+        <script tal:attributes="src string:${context/absolute_url}/++resource++vue/dist/js/app.js"  rel='preload' ></script>
+    <script>
+      window.define = window.__define;
+      window.require = window.__require;
+      window.__define = undefined;
+      window.__require = undefined;
+    </script>
+  </metal:block>
+<body>
+  <metal:block fill-slot="content_core">
+    <h2 i18n:translate="">Sample View</h2>
+    <p tal:content="view/msg">this gets replaced</p>
+     <vue-widget></vue-widget>
+  </metal:block>
+<body>
+</html>
