@@ -33,7 +33,7 @@
     <p tal:content="view/msg">this gets replaced</p>
      <vue-widget></vue-widget>
 
-      <div id="app">
+      <div id="app_is_cool">
           test test
       </div>
   </metal:block>
